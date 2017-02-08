@@ -1,0 +1,14 @@
+
+$ ansible-playbook web.yml --> run scenario web.yml for all hosts
+
+$ ansible-playbook --check try.yml --> check scenatio
+
+$ ansible-playbook try.yml -l remote_host -vvvv --> run scenario with trace
+
+$ ansible-playbook try.yml -l remote_host --ask-sudo-pass --> run and ask sudo pass or uncoment #ansible_sudo_pass in scenario
+
+$ ansible -i hosts -m ping all -vvvv --> check connect to all hosts
+
+$ ansible pc_server -a "free -m" --> execute comand on host pc_server
+
+$ ansible all -a "free -m" --> --> execute comand on all host

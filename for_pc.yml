@@ -1,0 +1,49 @@
+# web.yml
+---
+- hosts: all
+  user: ubuntu
+  sudo: yes
+  vars:
+    ansible_sudo_pass: unit237942
+
+  tasks:
+    - name: Update apt cache
+      apt: update_cache=yes
+      sudo: yes
+
+#    - name: Install required packages
+#      apt: name={{ item }}
+#      sudo: yes
+#      with_items:
+#        - mc
+#        - tree
+#        - htop
+
+  roles:
+
+#    - role: redis
+#      redis_port: 6777
+    - role: chrome
+
+#    - role: rubymine
+#      rubymine_version: 2016.3.1
+#    - role: git
+#      git_packages:
+#        - git
+#    - role: terminator
+##    - role: bundler
+#    - role: ansible-postgresql-role
+#      pg_default_auth_method: 'md5'
+#    - role: nodejs
+#    - role: rvm
+#      become: true
+#      become_user: rails
+#      rvm1_rubies:
+#        - 'ruby-2.3.0'
+#      rvm1_bundler_install: True
+#      rvm1_user: 'rails
+#    - role: ansible-role-oh-my-zsh
+#      become: true
+#      become_user: rails
+#      users:
+#        - username: rails

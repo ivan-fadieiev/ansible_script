@@ -1,0 +1,42 @@
+---
+- hosts: all
+  include_vars: my_vars.yml
+  user: ubuntu
+  sudo: yes
+#  vars:
+#      ansible_sudo_pass: "{{ password }}"
+
+  tasks:
+    - name: Update apt cache
+      apt: update_cache=yes
+      sudo: yes
+
+    - name: Install required packages
+      apt: name={{ item }}
+      sudo: yes
+      with_items:
+        - mc
+        - htop
+
+  roles:
+#    - role: redis
+    - role: git
+      git_packages:
+        - git
+    - role: bundler
+    - role: ansible-postgresql-role
+      pg_default_auth_method: 'md5'
+    - role: nodejs
+    - role: ansible-role-oh-my-zsh
+      become: true
+      become_user: rails
+      users:
+        - username: rails
+    - role: rvm
+      become: true
+      become_user: rails
+      rvm1_rubies:
+        - 'ruby-2.3.0'
+      rvm1_bundler_install: True
+      rvm1_user: 'rails'
+    - role: ansible-nginx

@@ -1,0 +1,12 @@
+# check connect to local & remote hosts
+# $ ansible -i hosts -m ping all -vvvv
+
+# execute comand om remote server
+# $ ansible pc_server -a "free -m"
+# $ ansible all -a "free -m"
+
+[web_hosts]
+
+localhost ansible_connection=local
+pc_server ansible_ssh_user=rails ansible_ssh_pass=railsqweasd ansible_ssh_port=2222 ansible_ssh_host=178.151.243.115
+

@@ -1,0 +1,2 @@
+vars:
+  ansible_sudo_pass: railsqweasd

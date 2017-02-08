@@ -1,0 +1,16 @@
+---
+- hosts: all
+  user: ubuntu
+  vars:
+#    ansible_sudo_pass: my_password
+
+  tasks:
+    - name: Update apt cache
+      apt: update_cache=yes
+      sudo: yes
+
+    - name: Install required packages
+      apt: name={{ item }}
+      sudo: yes
+      with_items:
+        - mc
