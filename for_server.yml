@@ -1,10 +1,10 @@
+# for_server.yml
 ---
-- hosts: all
-  include_vars: my_vars.yml
+- hosts: web_hosts
   user: ubuntu
   sudo: yes
-#  vars:
-#      ansible_sudo_pass: "{{ password }}"
+  vars:
+    ansible_sudo_pass: "{{ pass }}"
 
   tasks:
     - name: Update apt cache
@@ -19,24 +19,35 @@
         - htop
 
   roles:
-#    - role: redis
+
     - role: git
       git_packages:
         - git
+
     - role: bundler
+
     - role: ansible-postgresql-role
       pg_default_auth_method: 'md5'
+
     - role: nodejs
+
     - role: ansible-role-oh-my-zsh
       become: true
-      become_user: rails
+      become_user: "{{ ubuntu_user }}"
       users:
-        - username: rails
+        - username: "{{ ubuntu_user }}"
+
     - role: rvm
       become: true
-      become_user: rails
+      become_user: "{{ ubuntu_user }}"
       rvm1_rubies:
         - 'ruby-2.3.0'
       rvm1_bundler_install: True
-      rvm1_user: 'rails'
+      rvm1_user: "{{ ubuntu_user }}"
+
     - role: ansible-nginx
+
+########################################################
+################## IT CAN BE INSTALED ##################
+########################################################
+#    - role: redis

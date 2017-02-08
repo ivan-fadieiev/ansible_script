@@ -1,0 +1,6 @@
+# pc_server variables:
+
+pass:
+ubuntu_user:
+ansible_ssh_port:
+ansible_ssh_host:

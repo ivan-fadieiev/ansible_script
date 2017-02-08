@@ -1,0 +1,4 @@
+*.retry
+.idea/
+/host_vars/localhost.yml
+/host_vars/pc_server.yml

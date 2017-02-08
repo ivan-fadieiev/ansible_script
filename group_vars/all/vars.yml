@@ -1,0 +1,9 @@
+#localhost:
+#  pass: unit237942
+#  ubuntu_user: iv
+
+#pc_server:
+#  pass: railsqweasd
+#  ubuntu_user: rails
+#  ansible_ssh_port: 2222
+#  ansible_ssh_host: 178.151.243.115

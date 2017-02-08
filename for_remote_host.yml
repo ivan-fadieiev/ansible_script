@@ -1,3 +1,4 @@
+# for_remote_host.yml
 ---
 - hosts: all
   user: ubuntu

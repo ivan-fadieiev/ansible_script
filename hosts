@@ -1,12 +1,8 @@
-# check connect to local & remote hosts
-# $ ansible -i hosts -m ping all -vvvv
+# for installing environment you should add All privilege to user
+# [example] --> examlpe group
 
-# execute comand om remote server
-# $ ansible pc_server -a "free -m"
-# $ ansible all -a "free -m"
+[localhost]
+localhost ansible_connection=local
 
 [web_hosts]
-
-localhost ansible_connection=local
-pc_server ansible_ssh_user=rails ansible_ssh_pass=railsqweasd ansible_ssh_port=2222 ansible_ssh_host=178.151.243.115
-
+pc_server ansible_ssh_user="{{ ubuntu_user }}" ansible_ssh_pass="{{ pass }}" ansible_ssh_port="{{ ansible_ssh_port}}" ansible_ssh_host="{{ ansible_ssh_host}}"
