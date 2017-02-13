@@ -11,4 +11,4 @@ $ ansible -i hosts -m ping all -vvvv --> check connect to all hosts
 
 $ ansible pc_server -a "free -m" --> execute comand on host pc_server
 
-$ ansible all -a "free -m" --> --> execute comand on all host
+$ ansible all -a "free -m" --> execute comand on all host

@@ -27,7 +27,7 @@
     - role: bundler
 
     - role: ansible-postgresql-role
-      pg_default_auth_method: 'md5'
+      pg_default_auth_method: 'trust'
 
     - role: nodejs
 
